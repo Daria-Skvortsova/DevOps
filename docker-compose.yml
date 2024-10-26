@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  server:
+    build: ../1lab_backend
+    networks:
+    - devops_networks
+    ports:
+    - 8000:8000
+    volumes:
+      - backend-data:/data
+
+  client:
+     build: ../1labFrontend
+     ports:
+       - 8501:8501
+     depends_on:
+      - server
+     networks:
+       - devops_networks
+
+networks:
+  devops_networks:
+    driver: bridge
+
+volumes:
+  backend-data:
