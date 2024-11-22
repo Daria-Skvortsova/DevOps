@@ -1,0 +1,53 @@
+- name: Install Docker
+  apt:
+    name: docker.io
+    state: present
+  became: true
+  tags:
+    - deploy
+
+- name: Install Docker Compose
+  apt:
+    name: docker-compose
+    state: present
+  became: true
+  tags:
+    - deploy
+
+- name: Clone frontend repository
+  git:
+    repo: "https://github.com/Daria-Skvortsova/frontend.git"
+    dest: /task/devops_frontend
+  became: true
+  tags:
+    -deploy
+
+- name: Clone backend repository
+  git:
+    repo: "https://github.com/Daria-Skvortsova/backend.git"
+    dest: /task/devops_backend
+  became: true
+  tags:
+    -deploy
+
+- name: Clone DevOps repository
+  git:
+    repo: "https://github.com/Daria-Skvortsova/DevOps.git"
+    dest: /task/devops
+  became: true
+  tags:
+    -deploy
+
+- name: Start microservices
+  command: docker-compose up -d
+  args:
+    chdir: /task/devops
+  tags:
+    - start
+
+- name: Stop microservices
+  command: docker-compose down
+  args:
+    chdir: /task/devops
+  tags:
+    - stop
