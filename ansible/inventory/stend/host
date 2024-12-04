@@ -1,2 +1,2 @@
 [my_servers]
-server1 ansible_host = 192.168.142.132 ansible_ssh_user=daria ansible_become_pass=123123
+server1 ansible_host = 192.168.142.132 ansible_ssh_user=daria ansible_ssh_pass=123123 ansible_become_pass=123123
