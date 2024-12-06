@@ -17,7 +17,7 @@
 - name: Clone frontend repository
   git:
     repo: "https://github.com/Daria-Skvortsova/frontend.git"
-    dest: /task/devops_frontend
+    dest: /task/1labFrontend
   become: true
   tags:
     - deploy
@@ -25,7 +25,7 @@
 - name: Clone backend repository
   git:
     repo: "https://github.com/Daria-Skvortsova/backend.git"
-    dest: /task/devops_backend
+    dest: /task/1lab_backend
   become: true
   tags:
     - deploy
@@ -33,7 +33,7 @@
 - name: Clone DevOps repository
   git:
     repo: "https://github.com/Daria-Skvortsova/DevOps.git"
-    dest: /task/devops
+    dest: /task/2lab
   become: true
   tags:
     - deploy
@@ -41,13 +41,13 @@
 - name: Start microservices
   command: docker-compose up -d
   args:
-    chdir: /task/devops
+    chdir: /task/2lab
   tags:
     - start
 
 - name: Stop microservices
   command: docker-compose down
   args:
-    chdir: /task/devops
+    chdir: /task/2lab
   tags:
     - stop
