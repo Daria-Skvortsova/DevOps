@@ -8,7 +8,7 @@
 
 - name: Install Docker Compose
   apt:
-    name: docker compose
+    name: docker-compose
     state: present
   become: true
   tags:
