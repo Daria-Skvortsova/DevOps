@@ -39,14 +39,14 @@
     - deploy
 
 - name: Start microservices
-  command: docker-compose up -d
+  command: docker compose up -d
   args:
     chdir: /task/2lab
   tags:
     - start
 
 - name: Stop microservices
-  command: docker-compose down
+  command: docker compose down
   args:
     chdir: /task/2lab
   tags:
