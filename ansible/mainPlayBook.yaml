@@ -1,4 +1,4 @@
-- host: my_servers
+- hosts: my_servers
   become: true
   roles:
     - role1
