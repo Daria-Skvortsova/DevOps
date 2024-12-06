@@ -2,7 +2,7 @@
   apt:
     name: docker.io
     state: present
-  became: true
+  become: true
   tags:
     - deploy
 
@@ -10,7 +10,7 @@
   apt:
     name: docker-compose
     state: present
-  became: true
+  become: true
   tags:
     - deploy
 
@@ -18,25 +18,25 @@
   git:
     repo: "https://github.com/Daria-Skvortsova/frontend.git"
     dest: /task/devops_frontend
-  became: true
+  become: true
   tags:
-    -deploy
+    - deploy
 
 - name: Clone backend repository
   git:
     repo: "https://github.com/Daria-Skvortsova/backend.git"
     dest: /task/devops_backend
-  became: true
+  become: true
   tags:
-    -deploy
+    - deploy
 
 - name: Clone DevOps repository
   git:
     repo: "https://github.com/Daria-Skvortsova/DevOps.git"
     dest: /task/devops
-  became: true
+  become: true
   tags:
-    -deploy
+    - deploy
 
 - name: Start microservices
   command: docker-compose up -d
