@@ -6,7 +6,7 @@ pipeline {
             steps {
                 ansiblePlaybook(
                     playbook: './ansible/mainPlayBook.yml',
-                    inventory: '.ansible/inventory/stend/hosts',
+                    inventory: './ansible/inventory/stend/hosts',
                     hostKeyChecking: false,
                     disableHostKeyChecking: true,
                     credentialsId: '~/.ssh.id_rsa',
@@ -18,7 +18,7 @@ pipeline {
             steps {
                 ansiblePlaybook(
                     playbook: './ansible/mainPlayBook.yml',
-                    inventory: '.ansible/inventory/stend/hosts',
+                    inventory: './ansible/inventory/stend/hosts',
                     hostKeyChecking: false,
                     disableHostKeyChecking: true,
                     credentialsId: '~/.ssh.id_rsa',
